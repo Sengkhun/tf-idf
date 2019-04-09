@@ -3,9 +3,6 @@ import math
 def find_tf_idf(line):
   value = line.rstrip("\n\r").split(',')
   keyword = value[0]
-  d1 = int(value[1])
-  d2 = int(value[2])
-  d3 = int(value[3])
 
   idf = find_idf(value[1:])
 
@@ -17,12 +14,10 @@ def find_tf_idf(line):
       print('{:.2f}  '.format(tf_idf), end='')
     else:
       print('{:6}'.format(''), end='')
-      
   print()
 
 def find_tf(d):
-  # casting
-  int_d = int(d)
+  int_d = int(d)  # casting
   return 1 + math.log2(int_d) if int_d > 0 else 0
 
 def find_idf(d):
